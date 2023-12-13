@@ -10,11 +10,12 @@ public enum Status
 internal class BusinessLogic
 {
     private readonly ISettingsModel settingsModel;
+    private readonly ISettingsServiсe settingsService;
     private readonly INotificationService notificationService;
 
-    public BusinessLogic(ISettingsModel settingsModel, INotificationService notificationService)
+    public BusinessLogic(ISettingsServiсe settingsService, INotificationService notificationService)
     {
-        this.settingsModel = settingsModel;
+        this.settingsModel = settingsService.GetSettingsServiсe();
         this.notificationService = notificationService;
     }
 
@@ -46,16 +47,20 @@ internal class BusinessLogic
     /// <summary>Уведомление о результате</summary>
     public Status NotifyResult()
     {
-        if (attemptsCurrent >= settingsModel.AttemptsCount)
+        int attemptsCount =  settingsModel.AttemptsCount;
+        if (attemptsCurrent >= attemptsCount)
         {
-            notificationService.InfoToLog($"Вы не угадали число с {attemptsCurrent} попытки");
+            notificationService.ErrorToLog($"Вы не угадали число {settingsModel.AproveNumber} с {attemptsCurrent} попытки");
             return Status.stop;
         }
         if (checkNumber)
         {
             notificationService.InfoToLog($"Поздравляю, вы угадали число: {settingsModel.AproveNumber} с {attemptsCurrent} попытки");
             return Status.ok;
-        }       
+        }
+
+        int count = attemptsCount - attemptsCurrent;
+        notificationService.WarringToLog($"Не верное число, попробуйте ввести другое число, осталось {count} попытки");
         return Status.wait;
     }
 

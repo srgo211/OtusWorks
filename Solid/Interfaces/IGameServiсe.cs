@@ -9,9 +9,3 @@ public interface IGameServiсe
 }
 
 
-public interface IBusinessLogic
-{
-   
-
-
-}

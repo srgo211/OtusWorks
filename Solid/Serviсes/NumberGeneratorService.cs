@@ -1,8 +1,8 @@
 ﻿namespace Solid.Serviсes;
 
-internal class NumberGeneratorService : INumberGeneratorServiсe
+internal class NumberGeneratorService 
 {
-    public int GenerateRandomNumber(int minValue, int maxValue)
+    public static int GenerateRandomNumber(int minValue, int maxValue)
     {
         Random rnd = new Random();
         return rnd.Next(minValue, maxValue);
