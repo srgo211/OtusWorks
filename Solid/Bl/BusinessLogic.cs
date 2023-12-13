@@ -1,4 +1,6 @@
-﻿namespace Solid.Bl;
+﻿using System.Reflection;
+
+namespace Solid.Bl;
 
 public enum Status
 { 
@@ -59,7 +61,10 @@ internal class BusinessLogic
         }
 
         int count = attemptsCount - attemptsCurrent;
-        notificationService.WarringToLog($"Не верное число, попробуйте ввести другое число, осталось {count} попытки");
+        bool isBigger =  inputNumber > settingsModel.AproveNumber;
+        string info = isBigger ? "Введенное число БОЛЬШЕ" : "Введенное число МЕНЬШЕ";
+
+        notificationService.WarringToLog($"{info}, попробуйте ввести другое число, осталось {count} попытки");
         return Status.wait;
     }
 
