@@ -13,11 +13,6 @@ internal class GameService : IGameServiсe
         this.notificationService = notificationService;
     }
 
-    public void GetSettingsGame()
-    {
-        //settingsServiсe.GetSettingsServiсe();
-    }
-
     public void StartGame()
     {
         notificationService.InfoToLog("Старт игры - \"Угадай число\"\n");
