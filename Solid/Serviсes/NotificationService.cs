@@ -1,6 +1,4 @@
-﻿using static System.Net.Mime.MediaTypeNames;
-
-namespace Solid.Serviсes;
+﻿namespace Solid.Serviсes;
 
 internal class NotificationService : INotificationService
 {

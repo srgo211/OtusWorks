@@ -1,7 +1,17 @@
 ﻿namespace Solid.Interfaces;
 
-internal interface IGameServiсe
+public interface IGameServiсe
 {
     void GetSettingsGame();
     void StartGame();
+
+    
+}
+
+
+public interface IBusinessLogic
+{
+   
+
+
 }
