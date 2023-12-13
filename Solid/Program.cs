@@ -12,7 +12,8 @@ IServiceCollection RegistrateServiceCollection()
         .AddSingleton<BusinessLogic>()
         .AddScoped<IGameServiсe, GameService>()
         .AddScoped<INotificationService, NotificationService>()
-        .AddScoped<ISettingsServiсe, SettingsService>()
+        .AddScoped<ISettingsServiсe, SettingsServiceFromFile>() //взятие настроек из файла
+        //.AddScoped<ISettingsServiсe, SettingsServiceRandom>() //взятие настроек рандомно
         ;
 
     return collection;

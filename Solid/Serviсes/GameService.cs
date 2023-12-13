@@ -1,19 +1,26 @@
-﻿namespace Solid.Serviсes;
+﻿using Solid.Interfaces;
+
+namespace Solid.Serviсes;
 
 internal class GameService : IGameServiсe
 {
     
     private readonly  BusinessLogic logic;
-    private readonly ISettingsServiсe settingsServiсe;
-    public GameService(BusinessLogic logic)=> this.logic = logic;
+    private readonly INotificationService notificationService;
+    public GameService(BusinessLogic logic, INotificationService notificationService)
+    {
+        this.logic = logic;
+        this.notificationService = notificationService;
+    }
 
     public void GetSettingsGame()
     {
-        settingsServiсe.GetSettingsServiсe();
+        //settingsServiсe.GetSettingsServiсe();
     }
 
     public void StartGame()
     {
+        notificationService.InfoToLog("Старт игры - \"Угадай число\"\n");
         Status status = Status.wait;
         while (status == Status.wait)
         {
@@ -21,7 +28,10 @@ internal class GameService : IGameServiсe
                           .InputNumber()
                           .CheckNumber()
                           .NotifyResult();
-        }            
+        }
+
+        notificationService.InfoToLog("Конец Игры - \"Угадай число\"");
+
     }
 
 

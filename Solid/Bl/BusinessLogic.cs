@@ -10,7 +10,6 @@ public enum Status
 internal class BusinessLogic
 {
     private readonly ISettingsModel settingsModel;
-    private readonly ISettingsServiсe settingsService;
     private readonly INotificationService notificationService;
 
     public BusinessLogic(ISettingsServiсe settingsService, INotificationService notificationService)

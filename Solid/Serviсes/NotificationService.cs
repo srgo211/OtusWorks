@@ -1,5 +1,4 @@
 ﻿namespace Solid.Serviсes;
-
 internal class NotificationService : INotificationService
 {
     public void InfoToLog(string text) => Info(text, ConsoleColor.Green);
