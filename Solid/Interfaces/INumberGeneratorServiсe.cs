@@ -1,6 +1,6 @@
 ﻿namespace Solid.Interfaces;
 
-public interface INumberGeneratorServise
+public interface INumberGeneratorServiсe
 {
     int GenerateRandomNumber(int minValue, int maxValue);
 

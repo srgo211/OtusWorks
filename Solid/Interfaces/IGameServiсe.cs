@@ -1,6 +1,6 @@
 ﻿namespace Solid.Interfaces;
 
-internal interface IGameServise
+internal interface IGameServiсe
 {
     void GetSettingsGame();
     void StartGame();
