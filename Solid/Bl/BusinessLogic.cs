@@ -1,6 +1,4 @@
-﻿using Solid.Serviсes;
-
-namespace Solid.Bl;
+﻿namespace Solid.Bl;
 
 public enum Status
 { 

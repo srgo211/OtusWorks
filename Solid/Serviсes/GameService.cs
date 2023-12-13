@@ -1,8 +1,4 @@
-﻿using Solid.Bl;
-using Solid.Interfaces;
-using Solid.Serviсes;
-
-namespace Solid.Serviсesж
+﻿namespace Solid.Serviсesж
 {
     internal class GameService : IGameServiсe
     {
