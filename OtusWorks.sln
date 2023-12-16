@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lesson9", "Lesson9", "{CE553B66-839D-48B9-8665-BF416AC3E84B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid", "Solid\Solid.csproj", "{766B195D-A382-46AB-B225-EC83B9DD5F0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson9Solid", "Solid\Lesson9Solid.csproj", "{766B195D-A382-46AB-B225-EC83B9DD5F0B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
