@@ -5,9 +5,9 @@ namespace Solid.Serviсes;
 internal class GameService : IGameServiсe
 {
     
-    private readonly  BusinessLogic logic;
+    private readonly BaseBusinessLogicGame logic;
     private readonly INotificationService notificationService;
-    public GameService(BusinessLogic logic, INotificationService notificationService)
+    public GameService(BaseBusinessLogicGame logic, INotificationService notificationService)
     {
         this.logic = logic;
         this.notificationService = notificationService;

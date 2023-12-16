@@ -9,7 +9,7 @@ public enum Status
     stop,
 }
 
-internal class BusinessLogic
+internal class BusinessLogic : BaseBusinessLogicGame
 {
     private readonly ISettingsModel settingsModel;
     private readonly INotificationService notificationService;
@@ -23,10 +23,10 @@ internal class BusinessLogic
     private int attemptsCurrent = 0;
     private int inputNumber = 0;
     private bool checkNumber;
-    
-   
-    /// <summary>Ввод номера</summary>
-    public BusinessLogic InputNumber()
+
+
+
+    public override BaseBusinessLogicGame InputNumber()
     {
         notificationService.InfoToLog($"Введите номер от {settingsModel.MinNumber} до {settingsModel.MaxNumber}:");
         string text = Console.ReadLine();
@@ -37,16 +37,16 @@ internal class BusinessLogic
         return this;
     }
 
-    /// <summary>Проверка номера</summary>
-    public BusinessLogic CheckNumber()
+
+    public override BaseBusinessLogicGame CheckNumber()
     {
 
         checkNumber = inputNumber == settingsModel.AproveNumber;
         return this;
     }
 
-    /// <summary>Уведомление о результате</summary>
-    public Status NotifyResult()
+    
+    public override Status NotifyResult()
     {
         int attemptsCount =  settingsModel.AttemptsCount;
         if (attemptsCurrent >= attemptsCount)
