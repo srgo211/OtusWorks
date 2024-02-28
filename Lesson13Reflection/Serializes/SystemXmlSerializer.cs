@@ -19,7 +19,7 @@ internal class SystemXmlSerializer : ISerializationManager
 
     }
 
-    public T DeserializeToObject<T>(string serialized) where T : class
+    public T DeserializeToObject<T>(string serialized) where T : new()
     {
         if (String.IsNullOrWhiteSpace(serialized)) return default;
        
@@ -30,7 +30,8 @@ internal class SystemXmlSerializer : ISerializationManager
             
             try
             {
-                return serializer.Deserialize(reader) as T;
+                object deserialized = serializer.Deserialize(reader);
+                return (T)deserialized;
             }
             catch (InvalidOperationException ex)
             {

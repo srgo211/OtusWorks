@@ -7,6 +7,6 @@ public interface ISerializationManager
     string SerializeToString(object classData);
 
     /// <summary>Десериализация данных</summary>
-    T DeserializeToObject<T>(string serialized) where T : class;
+    T DeserializeToObject<T>(string serialized) where T : new();
 }
 

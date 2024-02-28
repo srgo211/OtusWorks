@@ -12,7 +12,7 @@ internal class SystemJsonSerializer : ISerializationManager
         return json;
     }
 
-    public T DeserializeToObject<T>(string serialized) where T : class
+    public T DeserializeToObject<T>(string serialized) where T : new()
     {
         if (String.IsNullOrWhiteSpace(serialized)) return default;
         T model = JsonSerializer.Deserialize<T>(serialized);

@@ -24,7 +24,7 @@ public class CustomSerializer : ISerializationManager
         return sb.ToString();
     }
 
-    public T DeserializeToObject<T>(string serialized) where T : class
+    public T DeserializeToObject<T>(string serialized) where T : new()
     {
         // Создание экземпляра объекта с использованием Activator
         T obj = Activator.CreateInstance<T>();
