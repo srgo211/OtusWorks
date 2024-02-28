@@ -9,7 +9,7 @@ public class CustomSerializer : ISerializationManager
 
     public string SerializeToString(object obj)
     {
-        if (obj is null) return default;
+        if (obj is null) throw new ArgumentNullException();
         Type type = obj.GetType();
         StringBuilder sb = new StringBuilder();
 
