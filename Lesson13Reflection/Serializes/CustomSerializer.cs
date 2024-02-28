@@ -21,6 +21,15 @@ public class CustomSerializer : ISerializationManager
             sb.Append($"{property.Name}{delimiterVal}{value}{delimiterFild}");
         }
 
+
+        // Сериализация полей
+        FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.Instance);
+        foreach (var field in fields)
+        {
+            string value = field.GetValue(obj)?.ToString();
+            sb.Append($"{field.Name}{delimiterVal}{value}{delimiterFild}");
+        }
+
         return sb.ToString();
     }
 
