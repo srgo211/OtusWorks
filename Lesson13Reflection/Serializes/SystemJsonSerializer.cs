@@ -14,8 +14,9 @@ internal class SystemJsonSerializer : ISerializationManager
 
     public T DeserializeToObject<T>(string serialized) where T : new()
     {
-        if (String.IsNullOrWhiteSpace(serialized)) return default;
+        if (String.IsNullOrWhiteSpace(serialized)) return new T();
         T model = JsonSerializer.Deserialize<T>(serialized);
+        if(model is null) return new T();
         return model;
     }
 }
