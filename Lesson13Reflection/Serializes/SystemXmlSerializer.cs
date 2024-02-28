@@ -6,7 +6,7 @@ internal class SystemXmlSerializer : ISerializationManager
 {
     public string SerializeToString(object classData)
     {
-        if (classData is null) return default;
+        if (classData is null) return string.Empty;
         Type type = classData.GetType();
         XmlSerializer serializer = new XmlSerializer(type);
 
