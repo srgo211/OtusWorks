@@ -21,23 +21,15 @@ internal class SystemXmlSerializer : ISerializationManager
 
     public T DeserializeToObject<T>(string serialized) where T : new()
     {
-        if (String.IsNullOrWhiteSpace(serialized)) return default;
-       
+        if (String.IsNullOrWhiteSpace(serialized)) 
+            throw new ArgumentNullException();
+
         XmlSerializer serializer = new XmlSerializer(typeof(T));
 
         using (StringReader reader = new StringReader(serialized))
         {
-            
-            try
-            {
-                object deserialized = serializer.Deserialize(reader);
-                return (T)deserialized;
-            }
-            catch (InvalidOperationException ex)
-            {
-                Console.WriteLine($"Ошибка десериализации: {ex.Message}");
-                return default; 
-            }
+            object deserialized = serializer.Deserialize(reader);
+            return (T)deserialized;
         }
 
     }
