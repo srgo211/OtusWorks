@@ -72,7 +72,7 @@ void SerializationToString(int countIterations)
         string res = default;
         for (int i = 1; i <= countIterations; i++)
         {
-            res = val.SerializerToString(testDatas);
+            res = val.SerializeToString(testDatas);
         }
 
         sw.Stop();
@@ -88,7 +88,7 @@ void DeserializationToObject(int countIterations)
         string key = dic.Key;
         var val = dic.Value;
 
-        string data = val.SerializerToString(testDatas);
+        string data = val.SerializeToString(testDatas);
 
 
         Console.WriteLine($"Десериализация данных методом: {key}");

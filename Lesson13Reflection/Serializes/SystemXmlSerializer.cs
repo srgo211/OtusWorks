@@ -4,7 +4,7 @@ namespace Lesson13Reflection.Serializes;
 
 internal class SystemXmlSerializer : ISerializationManager
 {
-    public string SerializerToString(object classData)
+    public string SerializeToString(object classData)
     {
         if (classData is null) return default;
         Type type = classData.GetType();

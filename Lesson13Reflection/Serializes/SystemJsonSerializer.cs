@@ -4,7 +4,7 @@ namespace Lesson13Reflection.Serializes;
 
 internal class SystemJsonSerializer : ISerializationManager
 {
-    public string SerializerToString(object classData)
+    public string SerializeToString(object classData)
     {
         if (classData is null) return String.Empty;
 

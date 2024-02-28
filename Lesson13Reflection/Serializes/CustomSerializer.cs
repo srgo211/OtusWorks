@@ -7,7 +7,7 @@ public class CustomSerializer : ISerializationManager
     const char delimiterFild = ';';
     const char delimiterVal  = '=';
 
-    public string SerializerToString(object obj)
+    public string SerializeToString(object obj)
     {
         if (obj is null) return default;
         Type type = obj.GetType();
