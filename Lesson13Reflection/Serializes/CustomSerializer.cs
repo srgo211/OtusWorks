@@ -17,7 +17,7 @@ public class CustomSerializer : ISerializationManager
         PropertyInfo[] properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
         foreach (var property in properties)
         {
-            string value= property.GetValue(obj)?.ToString();
+            string value = property.GetValue(obj)?.ToString() ?? "";
             sb.Append($"{property.Name}{delimiterVal}{value}{delimiterFild}");
         }
 
@@ -26,7 +26,7 @@ public class CustomSerializer : ISerializationManager
         FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.Instance);
         foreach (var field in fields)
         {
-            string value = field.GetValue(obj)?.ToString();
+            string value = field.GetValue(obj)?.ToString() ?? "";
             sb.Append($"{field.Name}{delimiterVal}{value}{delimiterFild}");
         }
 
