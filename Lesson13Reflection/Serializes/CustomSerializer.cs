@@ -14,7 +14,7 @@ public class CustomSerializer : ISerializationManager
         StringBuilder sb = new StringBuilder();
 
         // Сериализация свойств
-        PropertyInfo[] properties = type.GetProperties(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+        PropertyInfo[] properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
         foreach (var property in properties)
         {
             string value= property.GetValue(obj)?.ToString();
@@ -54,7 +54,7 @@ public class CustomSerializer : ISerializationManager
                 property.SetValue(obj, value);
             }
 
-            FieldInfo field = type.GetField(kvp.Key, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+            FieldInfo field = type.GetField(kvp.Key, BindingFlags.Public | BindingFlags.Instance);
             if (field != null)
             {
                 object value = Convert.ChangeType(kvp.Value, field.FieldType);
