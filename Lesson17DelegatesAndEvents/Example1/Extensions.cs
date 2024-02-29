@@ -1,4 +1,4 @@
-﻿namespace Lesson17DelegatesAndEvents;
+﻿namespace Lesson17DelegatesAndEvents.Example1;
 
 public static class Extensions
 {

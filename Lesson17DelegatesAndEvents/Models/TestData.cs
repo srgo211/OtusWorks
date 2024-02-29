@@ -19,7 +19,7 @@ public class TestData
 
         Random rnd = new Random();
 
-        int maxCount = rnd.Next(10,21);
+        int maxCount = rnd.Next(5,11);
         
         for (int i = 1; i <= maxCount; i++)
         { 

@@ -1,6 +1,4 @@
-﻿
-
-#region ДЗ - Делегаты и события
+﻿#region ДЗ - Делегаты и события
 /*
 Домашнее задание
 Делегаты и события
@@ -12,6 +10,8 @@
 1) Написать обобщённую функцию расширения, находящую и возвращающую максимальный элемент коллекции.
 Функция должна принимать на вход делегат, преобразующий входной тип в число для возможности поиска максимального значения.
 public static T GetMax(this IEnumerable collection, Func<T, float> convertToNumber) where T : class;
+
+
 2) Написать класс, обходящий каталог файлов и выдающий событие при нахождении каждого файла;
 3) Оформить событие и его аргументы с использованием .NET соглашений:
 public event EventHandler FileFound;
@@ -24,18 +24,11 @@ FileArgs – будет содержать имя файла и наследов
 
 
 using Lesson17DelegatesAndEvents;
-using Lesson17DelegatesAndEvents.Models;
 
-Exzample1();
+ExampleBase example1 = new Lesson17DelegatesAndEvents.Example1.Example();
+example1.Run();
 
-void Exzample1()
-{
-    Console.WriteLine("Пример обобщённой функции расширения, находящую и возвращающую максимальный элемент коллекции");
-    var datas = TestData.GetTestDatas();
 
-    foreach (var data in datas) Console.WriteLine(data);
-
-    var res = datas.GetMax(s => s.Weight);
-    Console.WriteLine("***********");
-    Console.WriteLine($"Максимальный вес:\n{res}");
-}
+string directoryPath = System.IO.Directory.GetCurrentDirectory();
+ExampleBase example2 = new Lesson17DelegatesAndEvents.Example2.Example(directoryPath);
+example2.Run();
