@@ -24,6 +24,18 @@ FileArgs – будет содержать имя файла и наследов
 
 
 using Lesson17DelegatesAndEvents;
+using Lesson17DelegatesAndEvents.Models;
 
-string[] arr = new string[1];
-//arr.GetMax(x => x);
+Exzample1();
+
+void Exzample1()
+{
+    Console.WriteLine("Пример обобщённой функции расширения, находящую и возвращающую максимальный элемент коллекции");
+    var datas = TestData.GetTestDatas();
+
+    foreach (var data in datas) Console.WriteLine(data);
+
+    var res = datas.GetMax(s => s.Weight);
+    Console.WriteLine("***********");
+    Console.WriteLine($"Максимальный вес:\n{res}");
+}
