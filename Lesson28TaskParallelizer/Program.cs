@@ -24,8 +24,12 @@
 #endregion
 using Lesson28TaskParallelizer;
 using System.Diagnostics;
+using System.Threading.Channels;
 
 Stopwatch sw = default;
+
+
+
 
 // Table header
 Console.WriteLine("{0,15} | {1,20} | {2,20} | {3,20} | {4,20} | {5,20}", 
@@ -34,6 +38,8 @@ Console.WriteLine("{0,15} | {1,20} | {2,20} | {3,20} | {4,20} | {5,20}",
 Console.WriteLine(new string('-', 130));
 
 int[] sizes = { 100000, 1000000, 10000000 };
+
+List<ExecutionResults> results = new();
 
 foreach (var size in sizes)
 {
@@ -73,9 +79,32 @@ foreach (var size in sizes)
         size, time, linqTime, parallelLinqTime, parallelThreadTime, parallelTaskTime);
 
 
+
+    Dictionary<string, double> dicTimes = new()
+    {
+        {"Обычный рассчет (foreach)", time },
+        {"Linq рассчет (Sum)", linqTime },
+        {"Parallel LINQ (.AsParallel().Sum)", parallelLinqTime },
+        {"Parallel Threads", parallelThreadTime },
+        {"Parallel Task", parallelTaskTime },
+    };
+
+    // Сортировка словаря по значению (времени)
+    var sortedTimes = dicTimes.OrderBy(pair => pair.Value).Select((pair, index) =>
+        new ExecutionResults { SizeArray = size, Place = index + 1,NameOperation =  pair.Key, Time = pair.Value }).ToArray();
+    results.AddRange(sortedTimes);
+
+   
+
+
 }
 
+
 Console.WriteLine();
+PrintResult(results);
+
+
+
 PrintInfoSystem();
 Console.ReadKey();
 
@@ -190,6 +219,30 @@ double GetTime(Stopwatch stopwatch)
     double time = stopwatch.Elapsed.TotalMilliseconds;
     return time;
 }
+
+void PrintResult(List<ExecutionResults> results)
+{
+    // Группируем результаты по размеру массива
+    var grResults = results.GroupBy(x => x.SizeArray);
+
+    // Перебираем каждую группу результатов
+    foreach (var group in grResults)
+    {
+        string formattedSize = string.Format("{0:#,0}", group.Key); // Форматирование числа с разделением пробелами
+        Console.WriteLine($"Размер массива: {formattedSize}");
+
+        // Перебираем результаты в текущей группе
+        foreach (var result in group)
+        {
+            string log = $"{result.Place}. {result.NameOperation}: {result.Time} ms";
+            Console.WriteLine(log);
+        }
+
+        Console.WriteLine(); // Добавляем пустую строку для разделения результатов разных размеров массива
+    }
+}
+
+
 void PrintInfoSystem()
 {
     Console.WriteLine("\nEnvironment Details:");
