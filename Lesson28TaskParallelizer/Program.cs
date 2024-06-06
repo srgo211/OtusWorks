@@ -79,7 +79,6 @@ foreach (var size in sizes)
         size, time, linqTime, parallelLinqTime, parallelThreadTime, parallelTaskTime);
 
 
-
     Dictionary<string, double> dicTimes = new()
     {
         {"Обычный рассчет (foreach)", time },
@@ -88,13 +87,10 @@ foreach (var size in sizes)
         {"Parallel Threads", parallelThreadTime },
         {"Parallel Task", parallelTaskTime },
     };
-
     // Сортировка словаря по значению (времени)
     var sortedTimes = dicTimes.OrderBy(pair => pair.Value).Select((pair, index) =>
         new ExecutionResults { SizeArray = size, Place = index + 1,NameOperation =  pair.Key, Time = pair.Value }).ToArray();
-    results.AddRange(sortedTimes);
-
-   
+    results.AddRange(sortedTimes); 
 
 
 }
@@ -102,9 +98,6 @@ foreach (var size in sizes)
 
 Console.WriteLine();
 PrintResult(results);
-
-
-
 PrintInfoSystem();
 Console.ReadKey();
 
@@ -211,9 +204,6 @@ long ParallelSumWithTasks(int[] array)
 }
 
 
-
-
-
 double GetTime(Stopwatch stopwatch)
 {
     double time = stopwatch.Elapsed.TotalMilliseconds;
@@ -224,11 +214,10 @@ void PrintResult(List<ExecutionResults> results)
 {
     // Группируем результаты по размеру массива
     var grResults = results.GroupBy(x => x.SizeArray);
-
-    // Перебираем каждую группу результатов
+       
     foreach (var group in grResults)
     {
-        string formattedSize = string.Format("{0:#,0}", group.Key); // Форматирование числа с разделением пробелами
+        string formattedSize = string.Format("{0:#,0}", group.Key); 
         Console.WriteLine($"Размер массива: {formattedSize}");
 
         // Перебираем результаты в текущей группе
@@ -238,11 +227,9 @@ void PrintResult(List<ExecutionResults> results)
             Console.WriteLine(log);
         }
 
-        Console.WriteLine(); // Добавляем пустую строку для разделения результатов разных размеров массива
+        Console.WriteLine();
     }
 }
-
-
 void PrintInfoSystem()
 {
     Console.WriteLine("\nEnvironment Details:");
