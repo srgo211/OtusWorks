@@ -19,6 +19,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lesson23", "Lesson23", "{35
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson23ParallelFileReader", "Lesson23ParallelFileReader\Lesson23ParallelFileReader.csproj", "{D25C433A-A8C0-4568-8620-91EA1C3AB8C6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lesson28", "Lesson28", "{7E7BA267-3A68-4788-94C2-6D0E1848A94A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson28TaskParallelizer", "Lesson28TaskParallelizer\Lesson28TaskParallelizer.csproj", "{88A24D33-9445-498D-9514-2D5B7CEF44F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +45,10 @@ Global
 		{D25C433A-A8C0-4568-8620-91EA1C3AB8C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D25C433A-A8C0-4568-8620-91EA1C3AB8C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D25C433A-A8C0-4568-8620-91EA1C3AB8C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88A24D33-9445-498D-9514-2D5B7CEF44F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88A24D33-9445-498D-9514-2D5B7CEF44F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88A24D33-9445-498D-9514-2D5B7CEF44F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88A24D33-9445-498D-9514-2D5B7CEF44F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +58,7 @@ Global
 		{97E074CE-5185-448A-8638-7672EFE66557} = {24452D6E-AF47-4075-8C4F-CB9581D84AC1}
 		{64B9BC72-2D7A-493A-9153-9CC0326084C5} = {11D24584-28A2-4949-A549-AEFFC6800E23}
 		{D25C433A-A8C0-4568-8620-91EA1C3AB8C6} = {3504E4A0-A3F3-4EAD-A386-D963C7855507}
+		{88A24D33-9445-498D-9514-2D5B7CEF44F5} = {7E7BA267-3A68-4788-94C2-6D0E1848A94A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2BB77690-BF65-408A-B979-666B4A66D165}
